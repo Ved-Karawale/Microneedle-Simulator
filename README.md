@@ -55,13 +55,13 @@ This is the core of the dissolution study. The code calculates total drug releas
 Surface-level drug dissolves immediately upon hydration. This is modeled as an exponential decay function dependent on an effective burst rate constant ($k_{\text{eff}}$):
 
 
-$$F_{\text{burst}}(t) = F_{\text{max\_burst}} \cdot (1 - e^{-k_{\text{eff}} \cdot t})$$
+$$F{\text{burst}}(t) = F{\text{max\_burst}} \cdot (1 - e^{-k{\text{eff}} \cdot t})$$
 
 **B. Sustained Release (Korsmeyer-Peppas Model)**
 For the drug embedded deeper in the polymer matrix, the code utilizes the standard Korsmeyer-Peppas equation:
 
 
-$$F_{\text{KP}}(t) = k_{\text{KP}} \cdot t^n$$
+$$F{\text{KP}}(t) = k{\text{KP}} \cdot t^n$$
 
 * $k_{\text{KP}}$ is a kinetic constant influenced by plasticizers (glycerol), surfactants (micelle boost), geometry, and the superdisintegrant.
 * $n$ is the diffusional exponent governing the release mechanism (e.g., Fickian diffusion vs. polymer swelling). The code dynamically shifts this $n$ value based on the drug's molecular weight, HPMC concentration, and the physical geometry (planar vs. TPMS).
@@ -74,7 +74,7 @@ Once $F_{\text{KP}}(t)$ hits **0.6** (60%), the code calculates the remaining ti
 Finally, the absolute fractions are combined to plot the curves you see in the Recharts visualization:
 
 
-$$F_{\text{total}} = F_{\text{burst}} + (1 - F_{\text{max\_burst}}) \cdot F_{\text{sustained}}$$
+$$F{\text{total}} = F{\text{burst}} + (1 - F{\text{max\_burst}}) \cdot F{\text{sustained}}$$
 
 
 ### 5. Surface Area, Volume, and Mass (`geometryModel`)
